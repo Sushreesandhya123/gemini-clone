@@ -8,14 +8,9 @@ import ChatRoom from '@/components/chat/ChatRoom';
 import Button from '@/components/ui/button';
 import { ArrowLeft, Moon, Sun, MoreVertical, Trash2 } from 'lucide-react';
 
-interface ChatPageProps {
-  params: Promise<{
-    id: string;
-  }>;
-}
 
-export default function ChatPage({ params }: ChatPageProps) {
-  const { id } = React.use(params); // ✅ unwrap the Promise
+export default function ChatPage({ params }: any) {
+  const { id } = params; 
   const router = useRouter();
   const { user } = useAuthStore();
   const { chatrooms, setCurrentChatroom, deleteChatroom } = useChatStore();

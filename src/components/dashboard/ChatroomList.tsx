@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { useChatStore } from '@/lib/store';
 import { formatTime } from '@/lib/utils';
 import { Chatroom } from '@/types';
@@ -14,13 +14,11 @@ interface ChatroomListProps {
 }
 
 export default function ChatroomList({ chatrooms }: ChatroomListProps) {
-  const router = useRouter();
+
   const { deleteChatroom } = useChatStore();
   const [showOptionsFor, setShowOptionsFor] = useState<string | null>(null);
 
-  const handleChatroomClick = (id: string) => {
-    router.push(`/chat/${id}`);
-  };
+
 
   const handleDeleteChatroom = (id: string) => {
     deleteChatroom(id);
